@@ -1,4 +1,4 @@
-# DIS26a1 - Process mining
+# DIS26a1 - Process Mining
 
 ## Data Entry
 
