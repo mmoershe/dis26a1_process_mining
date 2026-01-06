@@ -20,11 +20,11 @@
 
 ### Aufgaben – Jan (Business & Storyline)
 
-- [ ] PowerPoint-Struktur aufsetzen (Storyline entlang Enhancement Cycle)
-- [ ] Zielgruppe klar benennen und adressieren
-- [ ] Project Goal & Scope definieren (In Scope / Out of Scope)
-- [ ] Data Basis und Assumptions dokumentieren
-- [ ] Unternehmenskontext und Business-Relevanz von Prozessmanagement ausarbeiten
+- [X] PowerPoint-Struktur aufsetzen (Storyline entlang Enhancement Cycle)
+- [X] Zielgruppe klar benennen und adressieren
+- [X] Project Goal & Scope definieren (In Scope / Out of Scope)
+- [X] Data Basis und Assumptions dokumentieren
+- [X] Unternehmenskontext und Business-Relevanz von Prozessmanagement ausarbeiten
 
 ---
 
