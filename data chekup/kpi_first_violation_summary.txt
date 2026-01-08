@@ -1,0 +1,3 @@
+Total cases (with at least 1 core event): 19953
+Cases with timestamp violating core sequence: 12811
+Share: 64.21%

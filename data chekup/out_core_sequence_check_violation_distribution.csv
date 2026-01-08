@@ -1,0 +1,6 @@
+first_violation_between,case_count,share_pct_of_all_cases
+Confirm sale -> Start production,10290,51.57
+Finished production -> Load shipment,1750,8.77
+Start production -> Finished production,713,3.57
+Order received -> Confirm sale,49,0.25
+Order received -> Start production,9,0.05
