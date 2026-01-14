@@ -1,6 +1,6 @@
 # Data Description
 
-This document provides a structured overview of the data used in this project and its analytical characteristics.
+This document provides a structured overview of the data used in this project and its analytical characteristics.  
 No raw data files are included in this repository.
 
 ---
@@ -10,12 +10,12 @@ No raw data files are included in this repository.
 The analysis is based on two structured datasets:
 
 - **Activity Table**  
-  Contains the executed process events of the Order-to-Cash (O2C) process.
+  Contains executed process events of the Order-to-Cash (O2C) process at event level.
 
 - **Case Table**  
-  Contains business context and attributes per order (case).
+  Contains business context and attributes per customer order (case).
 
-Each case represents one customer order.
+Each case represents **one customer order** and one O2C process instance.
 
 ---
 
@@ -23,13 +23,14 @@ Each case represents one customer order.
 
 The activity table represents the O2C process as an event log with the following core elements:
 
-- case identifier (order)
-- activity name
-- event timestamp
-- logical activity order
+- Case identifier (order)
+- Activity name
+- Event timestamp
+- Logical activity order
 
-Change-related activities (e.g. production start date changes) are explicitly recorded and therefore directly observable in the event log.
-This enables a clear analysis of rework and execution deviations.
+Change-related activities (e.g. **production start date changes, quantity changes**) are explicitly recorded as separate events and are therefore directly observable.
+
+This enables a **direct and reliable analysis of rework, replanning behavior, and execution deviations**, particularly after order release.
 
 ---
 
@@ -37,43 +38,44 @@ This enables a clear analysis of rework and execution deviations.
 
 The case table provides contextual attributes used for segmentation and root-cause analysis, including:
 
-- customer market and region
-- product type
-- production plant
-- quantities and delivery dates
-- order value
+- Customer market and region
+- Product type
+- Production plant
+- Order quantities and delivery dates
+- Order value
 
-These attributes are not analyzed individually but are used to identify **systematic patterns** across execution deviations.
+These attributes are not analyzed in isolation but are used to identify **systematic patterns and concentrations** across execution deviations.
 
 ---
 
 ## Data Characteristics & Quality
 
-- Most cases follow a stable baseline with a limited number of events  
-- A smaller but relevant subset shows significantly higher activity counts, indicating rework behavior  
-- Event timestamps show limited granularity and occasional ties  
+- Most cases follow a stable baseline execution with a limited number of events  
+- A smaller but operationally relevant subset shows significantly higher activity counts, indicating rework and replanning behavior  
+- Event timestamps exhibit limited granularity and occasional ties  
 - Structural completeness of both tables is very high, with no systematic missing values  
 
-Overall, the dataset is well suited for process analysis, with challenges primarily related to sequencing and interpretation rather than data completeness.
+Overall, the dataset is **well suited for process mining and execution analysis**, with challenges primarily related to sequencing and interpretation rather than data completeness.
 
 ---
 
 ## Sequencing & Interpretation
 
-Due to timestamp ties, a deterministic sequencing approach is required:
+Due to timestamp ties and technical logging effects, a deterministic sequencing approach is applied:
 
-- primary ordering by event timestamp  
-- secondary ordering by logical activity order  
+- Primary ordering by event timestamp  
+- Secondary ordering by logical activity order based on business rules  
 
-This ensures a consistent and reproducible event sequence for process analysis and KPI calculation.
+Timestamps are used for **duration and cycle-time measurement**, while the logical order defines the **intended business execution sequence**.
+
+This ensures a consistent and reproducible event log for process analysis and KPI calculation.
 
 ---
 
 ## Data Limitations
 
 - No invoicing or payment data is available  
-- Timestamp granularity limits fine-grained time analysis  
-- Order value is used as a business proxy, not as an accounting metric  
+- Timestamp granularity limits fine-grained intra-day time analysis  
+- Order value is used as a **business relevance proxy**, not as an accounting or financial metric  
 
-The analysis therefore focuses on **operational execution behavior**, not on financial reconciliation or system configuration.
-
+The analysis therefore focuses on **operational execution behavior and planning stability**, not on financial reconciliation, margin analysis, or system configuration.
