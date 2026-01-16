@@ -418,17 +418,17 @@ def plot_problem_classes_2x2(
     ax.add_patch(FancyArrowPatch((left, bottom - 0.02), (left + width, bottom - 0.02),
                                  arrowstyle="-|>", mutation_scale=14,
                                  linewidth=1.2, color=PAL["mid_grey"]))
-    ax.text(left, bottom - 0.06, "Low quantity / tolerance deviation",
+    ax.text(left, bottom - 0.06, "Low quantity deviation",
             ha="left", va="top", fontsize=10, color=PAL["mid_grey"])
-    ax.text(left + width, bottom - 0.06, "High quantity / tolerance deviation",
+    ax.text(left + width, bottom - 0.06, "High quantity deviation",
             ha="right", va="top", fontsize=10, color=PAL["mid_grey"])
 
     ax.add_patch(FancyArrowPatch((left - 0.02, bottom), (left - 0.02, bottom + height),
                                  arrowstyle="-|>", mutation_scale=14,
                                  linewidth=1.2, color=PAL["mid_grey"]))
-    ax.text(left - 0.06, bottom, "Low lateness / timeliness deviation",
+    ax.text(left - 0.06, bottom, "Low lateness deviation",
             ha="right", va="bottom", rotation=90, fontsize=10, color=PAL["mid_grey"])
-    ax.text(left - 0.06, bottom + height, "High lateness / timeliness deviation",
+    ax.text(left - 0.06, bottom + height, "High lateness deviation",
             ha="right", va="top", rotation=90, fontsize=10, color=PAL["mid_grey"])
 
     # Top-left highlight (timeliness)
