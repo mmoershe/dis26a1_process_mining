@@ -1,3 +1,20 @@
+"""
+Purpose
+This script supports the root cause analysis of OTIF failures in the Order to Cash process.
+It engineers OTIF related KPIs, aggregates them by relevant business dimensions,
+and generates management ready tables and visualizations for impact based analysis.
+
+Use Case
+The outputs are used to identify and prioritize execution gaps based on lateness,
+quantity tolerance violations, and value exposure, supporting fact based
+management decision making.
+
+Notes
+Parts of the code were developed with assistance from GitHub Copilot.
+logic, structure, and analytical decisions were reviewed and validated by the authors.
+"""
+
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -356,7 +373,6 @@ def scatter_meta(
         y_med = float(np.nanmedian(y))
         ax.axvline(x_med, color=PAL["teal"], linewidth=1.2)
         ax.axhline(y_med, color=PAL["teal"], linewidth=1.2)
-        # Small, explicit explanation (prevents "are these targets?" confusion)
         ax.text(
             0.01, 0.02,
             "Reference lines = median of plotted groups (not targets)",
@@ -511,7 +527,6 @@ def export_flags(df: pd.DataFrame) -> None:
 def main() -> None:
     df = try_read_csv(CSV_PATH)
 
-    # Clean columns/strings
     df.columns = [c.strip().strip('"') for c in df.columns]
     for c in df.columns:
         if df[c].dtype == "object":
@@ -572,7 +587,6 @@ def main() -> None:
 
     export_flags(df)
 
-    # Conceptual 2x2
     plot_problem_classes_2x2("concept_2x2_problem_classes.png")
 
     print("Done:")
