@@ -1,58 +1,79 @@
-# Woodcorp – Order-to-Cash (O2C) Process Analysis
-*Process Mining case study (DIS26a1) | Tool: Celonis | Team project (Jan Krings & Henri Moersheim)*
+# Woodcorp Order to Cash O2C Process Analysis
+Process Mining Case Study DIS26a1  
+Tool Celonis  
+Team Project Jan Krings and Henri Moersheim
 
 ## Overview
-Business-focused analysis of the Order-to-Cash (O2C) execution of a fictitious manufacturing company (Woodcorp).  
-Using event data, we identify **execution deviations** from the intended flow, quantify their **operational and economic relevance**, and translate findings into **prioritized management actions** for process owners.
+Business focused analysis of the Order to Cash execution of a fictitious manufacturing company called Woodcorp.  
+Based on event data, the project identifies execution deviations from the intended process flow, quantifies their operational and economic impact, and translates results into prioritized management actions for process owners.
+
+## Key Findings
+- Post release execution deviations increase median O2C throughput time by approximately four days
+- A small number of recurring execution gaps explains most delays and planning instability
+- Late quantity changes after shipment loading have low frequency but very high impact
+- Repeated production rescheduling occurs frequently and causes systemic planning instability
+- Credit blocks with downstream rework affect around ten percent of orders and cause very high delays
+- Value exposure is mainly driven by late deliveries without quantity violations, requiring differentiated management responses
+
+## Skills Demonstrated
+- Process Mining with Celonis in the Order to Cash domain
+- Business process analysis and deviation modeling
+- KPI definition and impact based prioritization
+- Root cause analysis using filters and segmentation
+- Python for data validation, sequencing logic, and reproducibility
+- Management oriented storytelling and decision framing
 
 ## Business Context
-Woodcorp produces pallets and crates for retail and construction customers in a make-to-order setting.  
-Order and execution changes after receipt (e.g., price rework, production rescheduling, quantity corrections) introduce planning instability and operational rework—particularly **after order release** (handover to production and logistics).  
-This project focuses on **where execution deviates**, **how material the impact is**, and **which gaps require management attention**.
+Woodcorp produces pallets and crates for retail and construction customers in a make to order setting.  
+Order and execution changes after order receipt such as price rework, production rescheduling, or quantity corrections introduce planning instability and operational rework, particularly after order release when responsibility is handed over to production and logistics.
+
+The analysis focuses on where execution deviates from plan, how material the impact is, and which deviations require management attention.
 
 ## Core Question
-**Where does actual O2C execution deviate from the intended operational flow, and which deviations create material execution risk requiring management attention?**
+Where does actual O2C execution deviate from the intended operational flow, and which deviations create material execution risk requiring management action?
 
 ## Scope
-**In scope:** Order received → Confirm sale → Order release → Production & logistics execution → Goods delivered  
-**Out of scope:** Billing, invoicing, payment, returns, margin / profitability analysis, IT/system redesign
+In scope  
+Order received, confirm sale, order release, production and logistics execution, goods delivered  
+
+Out of scope  
+Billing, invoicing, payment, returns, margin or profitability analysis, IT or system redesign
 
 ## Methodological Approach
-The analysis follows the **Celonis Enhancement Cycle**:
+The analysis follows the Celonis Enhancement Cycle.
 
-**Identify → Quantify → Analyze → Improve → Control**
+Identify, Quantify, Analyze, Improve, Control
 
-Key methodological principles:
-- **Happy Path baseline:** Defined a simplified Happy Path as a stable analytical reference (not a target state)
-- **Execution Gaps:** Modeled systematic post-release deviations from the Happy Path as explicit, filterable gap definitions
-- **Sequencing logic:** Event timestamps are used for **durations only**; business execution order is derived from the provided **SORTING** logic to avoid logging artifacts
-- **Prioritization:** Execution gaps are ranked by **frequency × severity (TPT delta) × value exposure**, not by frequency alone
-- **RCA (filter-based):** Root cause analysis is conducted only for prioritized gaps via systematic filtering (plant, product, customer/market, logistics)
+Key methodological principles
+- A simplified Happy Path is defined as a stable analytical reference and not as a target state
+- Systematic post release deviations are modeled as explicit and filterable execution gaps
+- Event timestamps are used only for duration calculations, while execution order is derived from business defined sorting logic
+- Execution gaps are prioritized by frequency, severity measured as throughput time delta, and value exposure
+- Root cause analysis is conducted only for prioritized gaps using structured filtering by plant, product, customer or market, and logistics
 
 ## Deliverables
-- Slide deck / presentation material in `/slides` *(to be added)*  
-- Selected dashboard screenshots and plots in `/assets` *(to be added)*  
-- Documentation in `/docs`:
-  - `assumptions.md`
-  - `data_description.md`
-  - `methodology.md`
+- Management presentation in the slides folder
+- Selected Celonis dashboard screenshots and analytical plots in the assets folder
+- Detailed documentation in the docs folder including assumptions, data description, and methodology
+- Reproducible Python scripts for data validation and sequence handling
 
 ## Our Role
-Data Analysts (Process Mining)
+Data Analysts with a focus on Process Mining
 
-We:
-- framed the business question and analytical scope  
-- defined the Happy Path, key measures, and KPI logic  
-- identified and quantified execution deviations (gap-based analysis)  
-- prioritized gaps by operational impact and economic exposure  
-- conducted filter-based root cause analysis for high-impact gaps  
-- translated findings into stakeholder-ready insights and improvement actions  
+Responsibilities
+- Framing the business problem and analytical scope
+- Defining the Happy Path, KPIs, and measurement logic
+- Identifying and quantifying execution deviations using gap based analysis
+- Prioritizing execution gaps by operational and economic impact
+- Conducting filter based root cause analyses for high impact deviations
+- Translating analytical findings into stakeholder ready insights and management actions
 
 ## Data Availability
-The dataset is **not included** in this repository. Please do not commit any raw data files.  
-This repository contains documentation, analysis artifacts, and reproducible logic where possible.
+The dataset is not included in this repository.  
+No raw data files are committed. The repository contains documentation, analysis artifacts, and reproducible logic where possible.
 
 ## Status
 Finished
 
-*Note: Woodcorp is a fictitious company. This project is for academic and portfolio purposes.*
+Note  
+The data used in this project is synthetically generated and represents a realistic but fictitious Order to Cash execution scenario.
